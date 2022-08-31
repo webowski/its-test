@@ -1,0 +1,86 @@
+.Dropdown {
+	--paddingY: 16px;
+	--duration: var(--duration-lg);
+	position: relative;
+	z-index: 10;
+	font-size: .75rem;
+	line-height: 1.33;
+	text-transform: uppercase;
+	font-weight: 500;
+	transition:
+		z-index var(--duration) step-end;
+}
+
+.Dropdown__button {
+	@include buttonReset;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: color $duration-sm;
+}
+
+.Dropdown__button:hover {
+	color: var(--voice);
+}
+
+.Icon.Dropdown__chevron {
+	width: 8px;
+	height: 5px;
+	margin-left: .5rem;
+	transform-origin: 4px 2px;
+}
+
+.Dropdown__body {
+	min-width: 240px;
+	background-color: var(--bg);
+	position: absolute;
+	top: calc(-1 * var(--paddingY));
+	right: 0;
+	visibility: hidden;
+	opacity: 0;
+	isolation: isolate;
+	transform: translateY(-.375rem);
+	transition:
+		transform var(--duration),
+		opacity var(--duration),
+		visibility var(--duration) step-end;
+}
+
+.Dropdown__list {
+	@include listReset(true);
+}
+
+.Dropdown__item {
+	width: max-content;
+	min-width: 100%;
+	padding: var(--paddingY) 24px;
+	background-color: var(--bg);
+	transition:
+		color var(--duration),
+		background-color var(--duration);
+	cursor: pointer;
+}
+
+.Dropdown__item:hover {
+	background-color: var(--voice);
+}
+
+.Dropdown.is-open {
+	z-index: 55;
+	transition:
+		z-index var(--duration) step-start;
+}
+
+.Dropdown.is-open .Dropdown__chevron {
+	transform: rotate(180deg);
+}
+
+.Dropdown.is-open .Dropdown__body {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition:
+		transform var(--duration),
+		opacity var(--duration);
+}

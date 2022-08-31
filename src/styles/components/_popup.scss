@@ -1,0 +1,144 @@
+.PopupOrigin {
+	visibility: hidden;
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 500;
+}
+
+.Popup {
+	--duration: #{$duration-lg};
+	--paddingX: 2rem;
+	--paddingY: 1.5rem;
+	position: relative;
+	width: 540px;
+	padding: var(--paddingX) var(--paddingY);
+	background-color: var(--bg);
+	z-index: 550;
+	visibility: hidden;
+	opacity: 0;
+	transition:
+		opacity var(--duration),
+		transform var(--duration),
+		visibility var(--duration) step-end,
+		z-index var(--duration) step-end;
+
+	@include mediaUp(md) {
+		--paddingX: 2.25rem;
+		--paddingY: 2rem;
+	}
+
+	@include mediaUp(lg) {
+		--paddingX: 2.5rem;
+		--paddingY: 2.5rem;
+	}
+}
+
+.Popup__closer {
+	@include buttonReset;
+	width: 2.25rem;
+	height: 2.25rem;
+	border: 1px solid rgba(0,0,0,.1);
+	border-radius: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 2rem;
+	right: var(--paddingX);
+	transition:
+		background-color var(--duration-sm),
+		border-color var(--duration-sm),
+		color var(--duration-sm);
+
+	@include mediaUp(sm) {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	@include mediaUp(md) {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+.Popup__closer:hover {
+	color: var(--inverse);
+	background-color: var(--voice);
+	border-color: var(--voice);
+}
+
+.Popup__closer .Icon {
+	width: 14px;
+	height: 14px;
+}
+
+.Popup.is-open {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0) translateX(0);
+	transition:
+		opacity var(--duration),
+		transform var(--duration),
+		visibility var(--duration) step-start,
+		z-index var(--duration) step-start;
+}
+
+.Popup.-mobileSlideUp {
+	width: 420px;
+	height: min(318px, 70vh);
+	max-width: 100%;
+	align-self: flex-end;
+	justify-self: center;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	transform: translateY(100%);
+	opacity: 1;
+}
+
+.Popup.-mobileSlideUp .Popup__closer {
+	@include buttonReset;
+	width: 28px;
+	height: 4px;
+	border-radius: 4px;
+	position: absolute;
+	top: .75rem;
+	left: calc(50% - 14px);
+	background-color: var(--major);
+	opacity: .6;
+}
+
+.Popup.-mobileSlideUp .Popup__closer .Icon {
+	display: none;
+}
+
+.Popup.-mobileSlideUp .Popup__closer:after {
+	@include pseudoBlock(150%, 300%);
+	left: -25%;
+	top: -150%;
+	background-color: inherit;
+	opacity: 0;
+}
+
+.Popup.-mobileSlideUp.is-open {
+	transform: translateY(0) translateX(0);
+}
+
+.PopupOrigin.-cart {
+	align-items: stretch;
+	justify-content: flex-end;
+}
+
+.Popup.-cart {
+	width: min(100%, 600px);
+	transform: translateX(100%);
+	opacity: 1;
+	display: flex;
+	align-items: stretch;
+}
+
+.Popup.-cart.is-open {
+	transform: translateX(0);
+}

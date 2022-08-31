@@ -1,0 +1,103 @@
+.Header {
+	--headerGap: min(7.5vw, 2.5rem);
+	height: var(--headerHeight);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 50;
+	background-color: var(--bg);
+
+	@include mediaUp(lg) {
+		--headerGap: min(3.3vw, 4rem);
+		position: relative;
+	}
+
+	@include mediaUp(xl) {
+		--headerGap: min(calc(11vw - 3rem), 120px);
+	}
+}
+
+.Header:after {
+	@include mediaDown(lg) {
+		@include pseudoBlock(auto, 1px);
+		left: var(--sidePadding);
+		right: var(--sidePadding);
+		bottom: -1px;
+		background-color: #{rgba($major, .06)};
+	}
+}
+
+.Header__grid {
+	@include container;
+	height: var(--headerHeight);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--headerGap);
+	position: relative;
+}
+
+.Header__grid > * {
+	flex-shrink: 0
+}
+
+.Header__logo {
+	@include linkReset;
+	width: clamp(100px, 9vw, 132px);
+	flex-shrink: 0;
+	display: block;
+}
+
+.Header__logo img {
+	display: block;
+	width: 100%;
+}
+
+.Header__nav {
+	margin-right: auto;
+
+	@include mediaUp(xl) {
+		margin-left: clamp(0rem, 2.5vw, 2rem);
+	}
+}
+
+.Header__contacts {
+	display: none;
+	line-height: 1.25;
+
+	@include mediaUp(md) {
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+	}
+}
+
+.Header__callback:hover {
+	color: var(--voice);
+}
+
+.Header__phone {
+	@include linkReset;
+	font-size: clamp(.875rem, 1.1vw, 1rem);
+	font-weight: 500;
+	letter-spacing: -.02em;
+}
+
+.Header__callback {
+	@include linkReset;
+	color: rgba($major, .3);
+	font-size: .875rem;
+	font-weight: 500;
+}
+
+.Header__userPanel {
+	display: flex;
+	align-items: center;
+	gap: clamp(.5rem, 1.5vw, 1.5rem);
+}
+
+
+.Header__userPanel .IconLink:hover {
+	color: var(--voice);
+}

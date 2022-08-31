@@ -1,0 +1,33 @@
+.Circle {
+	--circleColor: var(--voice);
+	width: 3rem;
+	height: 3rem;
+	background-color: var(--circleColor);
+	border-radius: 4.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	transition:
+		color $duration,
+		border-color $duration,
+		background-color $duration;
+	color: $major;
+	font-size: 1.25rem;
+	line-height: 1.2;
+	font-weight: 500;
+}
+
+.Circle.-sm {
+	width: 1.5rem;
+	height: 1.5rem;
+	font-size: .75rem;
+}
+
+a.Circle {
+	@include linkReset;
+}
+
+a.Circle:hover {
+	background-color: darken($voice, 10);
+}

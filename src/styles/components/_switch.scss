@@ -1,0 +1,54 @@
+.SwitchField {
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+.SwitchField__label {
+	margin-left: .75rem;
+	font-size: .75rem;
+	line-height: 1.2;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.SwitchField + .SwitchField {
+	margin-top: .625rem;
+}
+
+.Switch {
+	margin: unset;
+	width: 36px;
+	height: 22px;
+	padding: 7px;
+	flex-shrink: 0;
+	display: flex;
+	appearance: none;
+	position: relative;
+	border-radius: 22px;
+	cursor: pointer;
+	background-color: var(--mutedLightest);
+	transition:
+		background-color $duration ease;
+}
+
+.Switch:after {
+	width: 8px;
+	height: 8px;
+	display: block;
+	content: '';
+	border-radius: 50%;
+	transition:
+		transform $duration ease;
+	background-color: var(--major);
+}
+
+.Switch[type="checkbox"]:checked {
+	background-color: var(--voice);
+}
+
+.Switch[type="checkbox"]:checked:after {
+	transform: translateX(14px)
+}

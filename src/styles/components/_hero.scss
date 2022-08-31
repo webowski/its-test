@@ -1,0 +1,58 @@
+.Hero {
+	--heroHeight: calc(18.75vw + 200px);
+	height: var(--heroHeight);
+	position: relative;
+	z-index: 0;
+	background-color: #6D6D6D;
+	color: $inverse;
+}
+
+.Hero__container {
+	@include container;
+	position: relative;
+	z-index: 3;
+}
+
+.Hero__container.-bottom {
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	right: 0;
+	bottom: 4rem;
+}
+
+.Hero__text {
+	width: calc(10vw + 292px);
+	max-width: 490px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index: 10;
+	font-size: clamp(.875rem, 1vw, 1rem);
+	font-weight: 500;
+	letter-spacing: .02em;
+	text-align: center;
+	pointer-events: none;
+}
+
+.Hero__text h1 {
+	margin-bottom: 1rem;
+}
+
+.Hero__breadcrumbs {
+	position: absolute;
+	top: 2rem;
+	left: var(--sidePadding);
+	z-index: 5;
+}
+
+.Hero__slider {
+	height: var(--heroHeight);
+}
+
+.Hero__slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

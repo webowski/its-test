@@ -1,0 +1,55 @@
+.Section.-catalog {
+	padding-top: clamp(3rem, 6vw, 4.5rem);
+	padding-bottom: clamp(4rem, 11.5vw, 8.5rem);
+}
+
+.Section.-catalog .Section__grid {
+	@include container;
+
+	@include mediaUp(lg) {
+		--listWidth: max(75vw, 83%);
+		display: grid;
+		grid-auto-columns: 1fr var(--listWidth);
+		grid-template:
+			"filter topPanel"
+			"filter list"
+		;
+		align-items: flex-start;
+	}
+}
+
+.Section__filter {
+	grid-area: filter;
+	padding-right: 1.5rem;
+}
+
+.Section__topPanel {
+	grid-area: topPanel;
+	margin-bottom: 2.75rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Section__list {
+	grid-area: list;
+}
+
+.Section__filterOpener,
+.Section__counter {
+	text-transform: uppercase;
+	font-size: .75rem;
+	font-weight: 500;
+	letter-spacing: .06em;
+}
+
+
+.Section__filterOpener {
+	@include linkReset;
+}
+
+@media (hover: hover) {
+	.Section__filterOpener:hover {
+		color: var(--voice);
+	}
+}

@@ -1,0 +1,59 @@
+.Icon {
+	--iconSize: 1.25rem;
+	height: var(--iconSize);
+	width: var(--iconSize);
+	display: block;
+	flex-shrink: 0;
+	fill: currentColor;
+	transition:
+		fill $duration-sm,
+		transform $duration-sm,
+		stroke $duration-sm;
+}
+
+.Icon.-search {
+	width: 18px;
+	height: 18px;
+}
+
+.Icon.-profile {
+	width: 18px;
+	height: 22px;
+}
+
+.Icon.-heart {
+	width: 20px;
+	height: 18px;
+}
+
+.Icon.-plus,
+.Icon.-minus {
+	--iconSize: 12px;
+
+	@include mediaUp(md) {
+		--iconSize: 14px;
+	}
+}
+
+.Icon.-sm.-plus,
+.Icon.-sm.-minus {
+	--iconSize: 9px;
+
+	@include mediaUp(md) {
+		--iconSize: 11px;
+	}
+}
+
+.IconLink {
+	@include linkReset;
+}
+
+.Icon.-delete {
+	width: .75rem;
+	height: .75rem;
+}
+
+.Icon.-restore {
+	width: 1.5rem;
+	height: 1.5rem;
+}
