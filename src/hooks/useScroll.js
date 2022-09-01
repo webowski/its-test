@@ -9,11 +9,13 @@ export const useScroll = () => {
 	const disableScroll = () => {
 		document.querySelector('body').addEventListener('wheel', preventScroll, {passive: false})
 		document.querySelector('body').classList.add('G-disableScroll')
+		document.querySelector('html').classList.add('G-disableScroll')
 	}
 
 	const enableScroll = () => {
 		document.querySelector('body').removeEventListener('wheel', preventScroll, {passive: false})
 		document.querySelector('body').classList.remove('G-disableScroll')
+		document.querySelector('html').classList.remove('G-disableScroll')
 	}
 
 	return {

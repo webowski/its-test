@@ -38,7 +38,7 @@ body {
 		opacity var(--duration);
 }
 
-@media not (hover:hover) {
+@media (hover:none) {
 	.G-disableScroll {
 		overflow: hidden;
 	}
