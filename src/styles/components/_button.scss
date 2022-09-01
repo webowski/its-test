@@ -34,14 +34,37 @@
 	}
 }
 
-.Button:hover {
-	background-color: var(--voice);
+@media (hover:hover) {
+
+	.Button:hover {
+		background-color: var(--voice);
+	}
+
+	.Button:active {
+		@include mediaUp(md) {
+			transform: translateY(1px);
+		}
+	}
 }
 
-.Button:active {
-	@include mediaUp(md) {
-		transform: translateY(1px);
+@media not (hover:hover) {
+
+	.Button:active {
+		animation-name: buttonPress;
+		animation-delay: 0;
+		animation-fill-mode: both;
+		animation-duration: .2s;
+		animation-timing-function: ease;
 	}
+}
+
+@keyframes buttonPress {
+  from {
+		background-color: var(--mutedLightest);
+  }
+  to {
+		background-color: var(--voice);
+  }
 }
 
 .Button:focus {
@@ -52,8 +75,11 @@
 	background-color: var(--brand);
 }
 
-.Button.-primary:hover {
-	background-color: darken($brand, 10);
+@media (hover: hover) {
+
+	.Button.-primary:hover {
+		background-color: darken($brand, 10);
+	}
 }
 
 .Button.-sm {
