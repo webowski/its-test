@@ -1,6 +1,8 @@
 .CatalogCard {
 	position: relative;
 	max-width: 360px;
+	display: flex;
+	flex-direction: column;
 }
 
 .CatalogCard:after {
@@ -64,10 +66,11 @@
 }
 
 .CatalogCard__footer {
-	margin-top: 1rem;
+	padding-top: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: auto;
 }
 
 .CatalogCard__price {

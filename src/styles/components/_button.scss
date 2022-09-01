@@ -48,27 +48,13 @@
 }
 
 @media (hover: none) {
+	.Button {
+		transition: none;
+	}
 
 	.Button:active {
-		animation-name: buttonPress;
-		animation-delay: 0s;
-		animation-fill-mode: forwards;
-		animation-duration: .25s;
-		animation-timing-function: ease;
-		animation-iteration-count: 1;
-	}
-}
-
-@keyframes buttonPress {
-  0% {
-		background-color: var(--mutedLightest);
-  }
-  50% {
 		background-color: var(--voice);
-  }
-  100% {
-		background-color: var(--mutedLightest);
-  }
+	}
 }
 
 .Button:focus {
@@ -82,6 +68,12 @@
 @media (hover: hover) {
 
 	.Button.-primary:hover {
+		background-color: darken($brand, 10);
+	}
+}
+
+@media (hover: none) {
+	.Button.-primary:active {
 		background-color: darken($brand, 10);
 	}
 }
