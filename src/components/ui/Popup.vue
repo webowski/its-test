@@ -28,16 +28,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import Overlay from './Overlay.vue'
-import Icon from './Icon.vue';
+import Icon from './Icon.vue'
+import { useScroll } from '@/hooks/useScroll'
 
 const emit = defineEmits(['close'])
+const { disableScroll, enableScroll } = useScroll()
 
 const isOpen = ref(false)
 
 const closePopup = () => {
 	isOpen.value = false
+	enableScroll()
 	emit('close')
 }
 
@@ -53,6 +56,11 @@ const props = defineProps({
 defineExpose({
 	togglePopup,
 	isOpen,
+})
+
+watch(isOpen, () => {
+	console.log(isOpen.value)
+	if (isOpen.value) disableScroll()
 })
 
 const touchInitial = ref()

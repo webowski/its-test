@@ -41,6 +41,10 @@ button {
 	color: inherit;
 }
 
+button {
+	touch-action: manipulation;
+}
+
 input:focus,
 textarea:focus,
 button:focus {
