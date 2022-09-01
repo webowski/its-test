@@ -47,7 +47,7 @@
 	}
 }
 
-@media not (hover:hover) {
+@media (hover: none) {
 
 	.Button:active {
 		animation-name: buttonPress;
