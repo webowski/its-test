@@ -59,7 +59,6 @@ defineExpose({
 })
 
 watch(isOpen, () => {
-	console.log(isOpen.value)
 	if (isOpen.value) disableScroll()
 })
 
