@@ -52,18 +52,22 @@
 	.Button:active {
 		animation-name: buttonPress;
 		animation-delay: 0;
-		animation-fill-mode: both;
-		animation-duration: .3s;
+		animation-fill-mode: forwards;
+		animation-duration: .25s;
 		animation-timing-function: ease;
+		animation-iteration-count: 1;
 	}
 }
 
 @keyframes buttonPress {
-  from {
+  0% {
 		background-color: var(--mutedLightest);
   }
-  to {
+  50% {
 		background-color: var(--voice);
+  }
+  100% {
+		background-color: var(--mutedLightest);
   }
 }
 
