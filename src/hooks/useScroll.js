@@ -1,4 +1,8 @@
+import { ref } from 'vue'
+
 export const useScroll = () => {
+
+	const top = ref(0)
 
 	const preventScroll = (e) => {
 		e.preventDefault()
@@ -6,26 +10,18 @@ export const useScroll = () => {
 		return false
 	}
 
-	const preventTouch = (e) => {
-		if(e.target.nodeName === "BODY"){
-			e.preventDefault()
-		}
-	}
-
-	const preventTouchPropagation = (e) => {
-		e.stopPropagation()
-	}
-
 	const disableScroll = () => {
-		document.querySelector('body').addEventListener('wheel', preventScroll, {passive: false})
-		document.querySelector('body').addEventListener('touchmove', preventTouch, {passive: false})
-		document.querySelector('*:not(body)').addEventListener('touchmove', preventTouchPropagation, {passive: false})
+		document.body.addEventListener('wheel', preventScroll, {passive: false})
+		top.value = document.documentElement.scrollTop
+		document.body.classList.add('G-disableScroll')
+		document.body.style.top = '-' + top.value + 'px'
 	}
 
 	const enableScroll = () => {
-		document.querySelector('body').removeEventListener('wheel', preventScroll)
-		document.querySelector('body').removeEventListener('touchmove', preventTouch)
-		document.querySelector('*:not(body)').removeEventListener('touchmove', preventTouchPropagation)
+		document.body.removeEventListener('wheel', preventScroll)
+		document.body.classList.remove('G-disableScroll')
+		document.documentElement.scrollTop = document.body.scrollTop = top.value
+		document.body.style.top = null
 	}
 
 	return {
