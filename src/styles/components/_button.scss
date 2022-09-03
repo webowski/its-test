@@ -49,11 +49,12 @@
 
 @media (hover: none) {
 	.Button {
-		transition: none;
+		transition: all .2s cubic-bezier(0.35, 0, 0.45, 0);
 	}
 
 	.Button:active {
 		background-color: var(--voice);
+		transition: 0s;
 	}
 }
 
