@@ -7,10 +7,10 @@
 	right: 0;
 	z-index: 50;
 	background-color: var(--bg);
+	box-shadow: 0 0 7px rgba(0,0,0,.3);
 
 	@include mediaUp(lg) {
 		--headerGap: min(3.3vw, 4rem);
-		position: relative;
 	}
 
 	@include mediaUp(xl) {

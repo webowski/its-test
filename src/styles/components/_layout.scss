@@ -4,14 +4,7 @@ body {
 
 .Wrap {
 	position: relative;
-
-	@include mediaDown(lg) {
-		padding-top: var(--headerHeight);
-	}
-
-	@include mediaUp(lg) {
-		padding-top: 0;
-	}
+	padding-top: var(--headerHeight);
 }
 
 .Overlay {
